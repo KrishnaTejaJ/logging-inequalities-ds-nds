@@ -1,6 +1,6 @@
 from config import Config
 from scripts.operations.file_operations import FileOperations
-from openpyxl import Workbook
+import csv
 
 
 def finalcalc():
@@ -40,11 +40,8 @@ def finalcalc():
 		final_list[cnt].extend([total['end_line_'], logcount[repo]['logging'], logcount[repo]['trace-traceback'], logcount[repo]['stderr'], logcount[repo]['print'], logcount[repo]['io-file.write'], f"{logvsnlog[repo]['logchanges']} / {logvsnlog[repo]['logchanges'] + logvsnlog[repo]['nonlogchanges']}", total_log_lines, files_count, total['class_'], total['method_'], total['debug'], total['info'], total['warning'], total['error'], total['fatal'], total['trace'], log_level_lines])		
 		cnt += 1
 			
-	#For adding all the data to the final excel sheet
-	book = Workbook()
-	sheet = book.active
-	sheet.append(['Repo Type', 'Repo Name', 'Repo Link', 'Number of Lines', 'Logging', 'Trace-Traceback', 'Stderr', 'Print', 'io-file.write', "DataScience Changes/Total Changes", "Actual Changed Log lines", "Files Count", 'Total Classes', 'Total Method', 'Total Debug type', 'Total Info Type', 'Total Warning Type', 'Total Error Type', 'Total Fatal type', 'Total Trace type', "Actual Log Lines"])
-	for final_row in final_list:
-		sheet.append(final_row)
-
-	book.save(Config.final2)
+	#For adding all the data to the LogMetrics-Summarized.csv
+	with open(Config.final2, 'w', newline='') as file:
+		writer = csv.writer(file)
+		writer.writerow(['Repo Type', 'Repo Name', 'Repo Link', 'Number of Lines', 'Logging', 'Trace-Traceback', 'Stderr', 'Print', 'io-file.write', "DataScience Changes/Total Changes", "Actual Changed Log lines", "Files Count", 'Total Classes', 'Total Method', 'Total Debug type', 'Total Info Type', 'Total Warning Type', 'Total Error Type', 'Total Fatal type', 'Total Trace type', "Actual Log Lines"])
+		writer.writerows(final_list)
