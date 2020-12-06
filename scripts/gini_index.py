@@ -1,9 +1,9 @@
 from config import Config
 from typing import List
 from itertools import combinations
-from openpyxl import Workbook
 import numpy as np
 import pandas as pd
+import csv
 
 def gini(x: List[float]) -> float:
 	x = np.array(x, dtype=np.float32)
@@ -13,7 +13,7 @@ def gini(x: List[float]) -> float:
 
 #To fetch various gini index input
 def gini_input(log_metrics_file):
-	log_metrics_data = pd.read_excel(log_metrics_file)
+	log_metrics_data = pd.read_csv(log_metrics_file)
 	final_list = []
 	repo_list = ['Type of Repo', 'Repo Name', 'Repo GiniIndex', 'File GiniIndex', 'Class GiniIndex', 'Method GiniIndex', 'File GiniIndex Info', 'File GiniIndex Error', 'File GiniIndex Warning', 'File GiniIndex Debug', 'File GiniIndex Trace', 'File GiniIndex Fatal', 'Class GiniIndex Info', 'Class GiniIndex Error', 'Class GiniIndex Warning', 'Class GiniIndex Debug', 'Class GiniIndex Trace', 'Class GiniIndex Fatal', 'Method GiniIndex Info', 'Method GiniIndex Error', 'Method GiniIndex Warning', 'Method GiniIndex Debug', 'Method GiniIndex Trace', 'Method GiniIndex Fatal']
 	#print(log_metrics_data.head(20))
@@ -46,8 +46,7 @@ def gini_input(log_metrics_file):
 				repo_list.extend(gini_sep_)
 				final_list.append(repo_list)
 					
-	book = Workbook()
-	sheet = book.active
-	for final_row in final_list:
-		sheet.append(final_row)
-	book.save(Config.gini_index)
+	#For writing all the gini index values to gini_index.csv				
+	with open(Config.gini_index, 'w', newline='') as file:
+		writer = csv.writer(file)
+		writer.writerows(final_list)
