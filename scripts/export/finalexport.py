@@ -1,6 +1,6 @@
 from config import Config
 from scripts.operations.file_operations import FileOperations
-from openpyxl import Workbook
+import csv
 
 def finalcalc():
 	final_list = []
@@ -73,11 +73,8 @@ def finalcalc():
 		'''if flag_r == 0:
 			final_list[cnt].extend(["-"] * 23)'''
 			
-	#For adding all the data to the final excel sheet
-	book = Workbook()
-	sheet = book.active
-	sheet.append(['DataScience/NonDataScience', 'Repo Name', 'Repo Link', 'Instances of Log - Logger', 'Instances of Log - Trace/Traceback', 'Instances of Log -StdErr', 'Instances of Log - Print', 'Instances of Log - IO/File.write', 'FileName', 'Log Density - Lines', 'Log Density - File', 'Log Density - Class', 'Log Density - Method', 'Log Level File - Info', 'Log Level File - Error', 'Log Level File - Warning', 'Log Level File - Debug', 'Log Level File - Trace', 'Log Level File - Fatal', 'Log Level Class - Info', 'Log Level Class - Error', 'Log Level Class - Warning', 'Log Level Class - Debug', 'Log Level Class - Trace', 'Log Level Class - Fatal', 'Log Level Method - Info', 'Log Level Method - Error', 'Log Level Method - Warning', 'Log Level Method - Debug', 'Log Level Method - Trace', 'Log Level Method - Fatal', 'DataScience Related Changes', 'Non DataScience Related Changes'])
-	for final_row in final_list:
-		sheet.append(final_row)
-
-	book.save(Config.final)
+	#For adding all the data to the FINAL.csv
+	with open(Config.final, 'w', newline='') as file:
+		writer = csv.writer(file)
+		writer.writerow(['DataScience/NonDataScience', 'Repo Name', 'Repo Link', 'Instances of Log - Logger', 'Instances of Log - Trace/Traceback', 'Instances of Log -StdErr', 'Instances of Log - Print', 'Instances of Log - IO/File.write', 'FileName', 'Log Density - Lines', 'Log Density - File', 'Log Density - Class', 'Log Density - Method', 'Log Level File - Info', 'Log Level File - Error', 'Log Level File - Warning', 'Log Level File - Debug', 'Log Level File - Trace', 'Log Level File - Fatal', 'Log Level Class - Info', 'Log Level Class - Error', 'Log Level Class - Warning', 'Log Level Class - Debug', 'Log Level Class - Trace', 'Log Level Class - Fatal', 'Log Level Method - Info', 'Log Level Method - Error', 'Log Level Method - Warning', 'Log Level Method - Debug', 'Log Level Method - Trace', 'Log Level Method - Fatal', 'DataScience Related Changes', 'Non DataScience Related Changes'])
+		writer.writerows(final_list)
