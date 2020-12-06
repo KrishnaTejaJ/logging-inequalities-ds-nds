@@ -1,15 +1,15 @@
 class Config:
 	
 	repo_file = 'data/input/1000data.xlsx'
-	final = 'data/FINAL.xlsx'
-	final2 = 'data/LogMetrics-Summarized.xlsx'
+	final = 'data/FINAL.csv'
+	final2 = 'data/LogMetrics-Summarized.csv'
 	excel2repo = 'data/output/log_classes_data/log_instances/input/excel2repo.json'
 	log_count = 'data/output/log_classes_data/log_instances/log_count.json'
 	logvsnonlog = 'data/output/log_classes_data/logvnlog/logvsnlog_changes.json'
 	pattern_op = 'data/output/log_classes_data/log_level/pattern_output.json'
 	finalexport = 'scripts/export/finalexport.py'
 	finalexport2 = 'scripts/export/finalexport2.py'
-	gini_index = 'data/gini_index.xlsx'
+	gini_index = 'data/gini_index.csv'
 	semgrep_logcount = 'https://semgrep.dev/s/KrishnaTejaJ:log-individual2'
 	semgrep_loglevel = 'https://semgrep.dev/s/KrishnaTejaJ:log-level3'
 
