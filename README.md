@@ -21,7 +21,7 @@ The [log instances rule](https://semgrep.dev/s/KrishnaTejaJ:log-individual2) is 
 * io
 * stderr
 
-`log_instances.py` in the directory `scripts/logging/` implements the log extraction in the above categories
+`./scripts/logging/log_instances.py` implements the log extraction in the above categories
 
 ### Log Level
 The [log level rule](https://semgrep.dev/s/KrishnaTejaJ:log-level3) is used to extract logs in the following categories
@@ -34,24 +34,25 @@ The [log level rule](https://semgrep.dev/s/KrishnaTejaJ:log-level3) is used to e
 * trace (includes logs of trace and traceback)
 * fatal (includes logs of print and io statements including the word fatal)
 
-`log_level.py` in the directory `scripts/logging/` implements the log extraction in the above categories
+`./scripts/logging/log_level.py` implements the log extraction in the above categories
 
 ### Log changes
 From among the last 10 changes made to the repo, number of changes that belong to Data Science and those that belong to Non Data Science are also extracted.<br>
-`logvnlog.py` in the directory `scripts/logging` extracts and categorises Data Science and Non Data Science type changes.
+`./scripts/logging/logvnlog.py` extracts and categorises Data Science and Non Data Science type changes.
 
 ## Output
 After applying the log rules the following outputs files are extracted from the JSON files (results of applying log rules).
 
-**FINAL.csv** in the directory `data/`<br>
+`./scripts/export/final_export.py` outputs `./data/FINAL.csv`<br> 
 This output file consists of log instances count, log density, log level count and changes count of each and every python file of all repository.<br>
 This file will be used to extract gini index of the repositories which will the key factor in analysing logging of Data Science and Non Data Science github repos.
 
-**gini_index.csv** in the directroy `data/`<br>
+`./scripts/export/gini_index.py` outputs `./data/gini_index.csv`<br>
 This file contains the gini index of the repository, file level (includes log level categories), class level (includes log level categories) and method level (includes log level categories).
 
-**LogMetrics-Summarized.csv** in the directory `data/`<br>
+`./scripts/export/final_export2.py` outputs `./data/LogMetrics-Summarized.csv`<br>
 This output file consists of tota log instances count, total log level count, changes made to the repos (last 10) and log statements of a repo.
 
-
+## Running
+On running 
 ___
