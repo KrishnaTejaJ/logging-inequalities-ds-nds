@@ -44,15 +44,14 @@ From among the last 10 changes made to the repo, number of changes that belong t
 After applying the log rules the following outputs files are extracted from the JSON files (results of applying log rules).
 
 `./scripts/export/final_export.py` outputs `./data/FINAL.csv`<br> 
-This output file consists of log instances count, log density, log level count and changes count of each and every python file of all repository.<br>
+The output file consists of log instances count, log density, log level count and changes count of each and every python file of all repository.<br>
 This file will be used to extract gini index of the repositories which will the key factor in analysing logging of Data Science and Non Data Science github repos.
 
 `./scripts/export/gini_index.py` outputs `./data/gini_index.csv`<br>
-This file contains the gini index of the repository, file level (includes log level categories), class level (includes log level categories) and method level (includes log level categories).
+The output file contains the gini index of the repository, file level (includes log level categories), class level (includes log level categories) and method level (includes log level categories).
 
 `./scripts/export/final_export2.py` outputs `./data/LogMetrics-Summarized.csv`<br>
-This output file consists of tota log instances count, total log level count, changes made to the repos (last 10) and log statements of a repo.
+The output file consists of tota log instances count, total log level count, changes made to the repos (last 10) and log statements of a repo.
 
-## Running
-On running 
+
 ___
