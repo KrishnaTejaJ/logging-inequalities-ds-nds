@@ -1,15 +1,18 @@
 # Characterizing Logging in Data Science and Non Data Science Github Repositories
 
-With the increased usecases for Data Science in this modern era, it is important to figure out ways so that Data Science projects would adapt smoothly with Non Data Science projects.<br>
-For this to happen one of the cruicial steps is to analyse logging in the types of projects and drawing insights from them.
-That is the purpose of this repository.
+The software engineering applications are known to follow the product quality rigour. Application logging is one of the standard practice to bring software engineering rigour. The logs are used for debugging, testing, execution path analysis and many more use cases.
+
+In the recent times, the data science projects are being integrated into mainstream software engineering applications.  
+
+In this work, we quantitively and qualitatively analyze Logging practices of Data Science and Non-Data Science (Software Engineering) applications.
+
 
 ## Data
 From the data listed in the [source](https://github.com/a2i2/mining-data-science-repositories/tree/master/data), api link and github link of a repo are the only columns used for the purpose of this repository.<br>
 Contains both Data Science and Non Data Science repos.
 
 ## Input
-The input file is considered in XLSX format with two sheets one for Data Science repos and the other for Non Data Science repos, it resides in `data/input` directory.
+The input file contains the list of repos of data science and non-data science in csv format, it resides in `data/input` directory.
 
 ## Using Semgrep rules
 Logs were extracted from the repos using two semgrep rules.
@@ -36,22 +39,22 @@ The [log level rule](https://semgrep.dev/s/KrishnaTejaJ:log-level3) is used to e
 
 `./scripts/logging/log_level.py` implements the log extraction in the above categories
 
-### Log changes
-From among the last 10 changes made to the repo, number of changes that belong to Data Science and those that belong to Non Data Science are also extracted.<br>
-`./scripts/logging/logvnlog.py` extracts and categorises Data Science and Non Data Science type changes.
+### Log Churn
+Extracted the code churn of the last 10 commits of data science and non-data science projects to review the improvement in quantity and quality of logs.<br>
+`./scripts/logging/logvnlog.py` extracts and categorises Data Science and Non Data Science code churns.
 
 ## Output
 After applying the log rules the following outputs files are extracted from the JSON files (results of applying log rules).
 
 `./scripts/export/final_export.py` outputs `./data/FINAL.csv`<br> 
-The output file consists of log instances count, log density, log level count and changes count of each and every python file of all repository.<br>
+The output file consists of log instances count, log density, log level count and churn count of each and every python file of all repository.<br>
 This file will be used to extract gini index of the repositories which will the key factor in analysing logging of Data Science and Non Data Science github repos.
 
 `./scripts/export/gini_index.py` outputs `./data/gini_index.csv`<br>
 The output file contains the gini index of the repository, file level (includes log level categories), class level (includes log level categories) and method level (includes log level categories).
 
 `./scripts/export/final_export2.py` outputs `./data/LogMetrics-Summarized.csv`<br>
-The output file consists of tota log instances count, total log level count, changes made to the repos (last 10) and log statements of a repo.
+The output file consists of tota log instances count, total log level count, churns (last 10) of repos  and log statements of a repo.
 
 
 ___
