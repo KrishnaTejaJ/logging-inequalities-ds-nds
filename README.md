@@ -46,17 +46,17 @@ Extracted the code churn of the last 10 commits of data science and non-data sci
 `./scripts/logging/logvnlog.py` extracts and categorises Data Science and Non Data Science code churns.
 
 ## Output
-After applying the log rules the following outputs files are extracted from the JSON files (results of applying log rules).
+After applying the Semgrep rules, the following outputs files were generated.
 
 `./scripts/export/final_export.py` outputs `./data/FINAL.csv`<br> 
-The output file consists of log instances count, log density, log level count and churn count of each and every python file of all repository.<br>
-This file will be used to extract gini index of the repositories which will the key factor in analysing logging of Data Science and Non Data Science github repos.
+The output file consists of log instances count, log density, log level count and code churn of all python files in every repository.<br>
+This file is used to calculate Gini Index of the repositories to analyze logging inequalities of Data Science and Non-Data Science GitHub repos.
 
 `./scripts/export/gini_index.py` outputs `./data/gini_index.csv`<br>
 The output file contains the gini index of the repository, file level (includes log level categories), class level (includes log level categories) and method level (includes log level categories).
 
 `./scripts/export/final_export2.py` outputs `./data/LogMetrics-Summarized.csv`<br>
-The output file consists of tota log instances count, total log level count, churns (last 10) of repos  and log statements of a repo.
+The output file consists summary of log instances count, log level count, churn and log statements of Data Science and Non-Data Science repositories.
 
 
 ___
