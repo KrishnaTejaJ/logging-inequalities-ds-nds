@@ -6,6 +6,8 @@ In the recent times, the data science projects are being integrated into mainstr
 
 In this work, we quantitively and qualitatively analyze Logging practices of Data Science and Non-Data Science (Software Engineering) applications.
 
+As Python is considered as the most widely used application in Data Science projects.  We limit the study of Data Science and Non-Data Science to Python based GitHub repos.
+
 
 ## Data
 From the data listed in the [source](https://github.com/a2i2/mining-data-science-repositories/tree/master/data), api link and github link of a repo are the only columns used for the purpose of this repository.<br>
