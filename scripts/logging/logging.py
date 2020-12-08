@@ -8,8 +8,8 @@ from scripts.logging.log_level import LogLevel
 class Logging:
 	
 	def log_instances_():
-		LogInstances.excel2json(Config.repo_file)
-		LogInstances.json2semgrep(Config.excel2repo)
+		LogInstances.csv2json(Config.repo_file)
+		LogInstances.json2semgrep(Config.csv2repo)
 		LogInstances.semgrep2json()
 
 	def logvnonlog_():
