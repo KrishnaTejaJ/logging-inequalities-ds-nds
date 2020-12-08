@@ -3,7 +3,7 @@ class Config:
 	repo_file = 'data/input/1000data.csv'
 	final = 'data/FINAL.csv'
 	final2 = 'data/LogMetrics-Summarized.csv'
-	excel2repo = 'data/output/log_classes_data/log_instances/input/excel2repo.json'
+	csv2repo = 'data/output/log_classes_data/log_instances/input/csv2repo.json'
 	log_count = 'data/output/log_classes_data/log_instances/log_count.json'
 	logvsnonlog = 'data/output/log_classes_data/logvnlog/logvsnlog_changes.json'
 	pattern_op = 'data/output/log_classes_data/log_level/pattern_output.json'
