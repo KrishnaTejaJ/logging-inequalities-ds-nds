@@ -9,15 +9,17 @@ import pandas as pd
 class LogInstances:
 
 	#To create a json for easy repo data fetching
-	def excel2json(repo_file):
-		excel = pd.ExcelFile(repo_file)
-		repo2json = {}		
-		for sheet in excel.sheet_names:
-			data = pd.read_excel(excel, sheet_name = sheet)
-			for link in data['Repo_Link']:
+	def csv2json(repo_file):
+		csv = pd.read_csv(repo_file)
+		repo2json = {}
+		type = "DataScience"
+		for link in data['Repo_Link']:
+			if link == "NonDataScience":
+				type = "NonDataScience"
+			else:
 				repo_name = link.split('/')[-1]
 				repo2json[repo_name] = {}
-				repo2json[repo_name]['Type'] = sheet
+				repo2json[repo_name]['Type'] = type
 				repo2json[repo_name]['Repo Link'] = link
 		FileOperations.json.save_json(repo2json, f"{Config.log_instances}/input/excel2repo.json")	
 
