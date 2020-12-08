@@ -6,14 +6,14 @@ from scripts.export import finalexport2
 from scripts import gini_index
 import os
 
-'''#Easing the process of required folder operations
-FolderOperations.createFolder([Config.output, Config.repo_data, Config.log_classes_data, Config.datascience, Config.nondatascience, Config.log_instances, Config.log_instances_input, Config.log_level, Config.logvnlog])'''
+#Easing the process of required folder operations
+FolderOperations.createFolder([Config.output, Config.repo_data, Config.log_classes_data, Config.datascience, Config.nondatascience, Config.log_instances, Config.log_instances_input, Config.log_level, Config.logvnlog])
 
 #Counting the individual log statements in the repo
-#Logging.log_instances_()
+Logging.log_instances_()
 
 #To find number of Log based changes and Non Log based changes made to the repo in last 10 versions
-#Logging.logvnonlog_()
+Logging.logvnonlog_()
 
 #For extracting log level based information
 Logging.log_level_()
