@@ -7,7 +7,7 @@ def finalcalc():
 	final_list = []
 	cnt = 0
 
-	final = FileOperations.json.read_json(Config.excel2repo)
+	final = FileOperations.json.read_json(Config.csv2repo)
 	logcount = FileOperations.json.read_json(Config.log_count)
 	logvsnlog = FileOperations.json.read_json(Config.logvsnonlog)
 	pattern_data = FileOperations.json.read_json(Config.pattern_op)
