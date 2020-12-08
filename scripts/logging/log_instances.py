@@ -10,7 +10,7 @@ class LogInstances:
 
 	#To create a json for easy repo data fetching
 	def csv2json(repo_file):
-		csv = pd.read_csv(repo_file)
+		data = pd.read_csv(repo_file)
 		repo2json = {}
 		type = "DataScience"
 		for link in data['Repo_Link']:
@@ -21,7 +21,7 @@ class LogInstances:
 				repo2json[repo_name] = {}
 				repo2json[repo_name]['Type'] = type
 				repo2json[repo_name]['Repo Link'] = link
-		FileOperations.json.save_json(repo2json, f"{Config.log_instances}/input/excel2repo.json")	
+		FileOperations.json.save_json(repo2json, f"{Config.log_instances}/input/csv[2repo.json")	
 
 	#Applying semgrep rule on all the repos for specific log statement count
 	def json2semgrep(jsonfile):
