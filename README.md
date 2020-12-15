@@ -19,7 +19,7 @@ The input file contains the list of repos of data science and non-data science i
 ## Using Semgrep rules
 Logs were extracted from the repos using two semgrep rules.
 ### Log Instances
-The [log instances rule](https://semgrep.dev/s/KrishnaTejaJ:log-individual2) is used to extract logs in the following categories
+The [log instances rule](https://semgrep.dev/s/KrishnaTejaJ:log-individual3) is used to extract logs in the following categories
 * print
 * logging
 * traceback
@@ -29,7 +29,7 @@ The [log instances rule](https://semgrep.dev/s/KrishnaTejaJ:log-individual2) is 
 `./scripts/logging/log_instances.py` implements the log extraction in the above categories
 
 ### Log Level
-The [log level rule](https://semgrep.dev/s/KrishnaTejaJ:log-level3) is used to extract logs in the following categories
+The [log level rule](https://semgrep.dev/s/KrishnaTejaJ:log_level4) is used to extract logs in the following categories
 * class
 * method
 * info (includes logs of print, logging and io)
@@ -49,7 +49,7 @@ Extracted the code churn of the last 10 commits of data science and non-data sci
 After applying the Semgrep rules, the following outputs files were generated.
 
 `./scripts/export/final_export.py` outputs `./data/FINAL.csv`<br> 
-The output file consists of log instances count, log density, log level count and code churn of all python files in every repository.<br>
+The output file consists of log instances count, log density, log level count, code churn of all python files in every repository and the log details of a specific python file in a repo.<br>
 This file is used to calculate Gini Index of the repositories to analyze logging inequalities of Data Science and Non-Data Science GitHub repos.
 
 `./scripts/export/gini_index.py` outputs `./data/gini_index.csv`<br>
