@@ -10,8 +10,8 @@ class Config:
 	finalexport = 'scripts/export/finalexport.py'
 	finalexport2 = 'scripts/export/finalexport2.py'
 	gini_index = 'data/gini_index.csv'
-	semgrep_logcount = 'https://semgrep.dev/s/KrishnaTejaJ:log-individual2'
-	semgrep_loglevel = 'https://semgrep.dev/s/KrishnaTejaJ:log-level3'
+	semgrep_logcount = 'https://semgrep.dev/s/KrishnaTejaJ:log-individual3'
+	semgrep_loglevel = 'https://semgrep.dev/s/KrishnaTejaJ:log_level4'
 
 	output = 'data/output/'
 	repo_data = 'data/output/repo_data/'
