@@ -26,6 +26,70 @@ The [log instances rule](https://semgrep.dev/s/KrishnaTejaJ:log-individual3) is 
 * io
 * stderr
 
+
+```
+rules:
+- id: print
+  pattern: |
+    print(...)
+  message: |
+    Match found print
+  fix: |
+    
+  severity: WARNING
+
+- id: logging
+  patterns:
+    - pattern-either: 
+      - pattern: |
+          logging.info(...)
+      - pattern: |
+          logging.error(...)
+      - pattern: |
+          logging.warning(...)
+      - pattern: |
+          logging.debug(...)
+      - pattern: |
+          logging.critical(...)
+  message: |
+    Match found logging
+  fix: |
+    
+  severity: WARNING
+
+- id: trace-traceback
+  patterns:
+    - pattern-either: 
+      - pattern: |
+          trace.$B(...)
+      - pattern: |
+          traceback.$C(...)   
+  message: |
+    Match found trace-traceback
+  fix: |
+
+- id: io-file.write
+  patterns:
+    - pattern-either: 
+      - pattern: |
+          $D.writelines(...)
+      - pattern: |
+          $E.write(...)   
+  message: |
+    Match found io-file.write
+  fix: |
+
+- id: stderr
+  pattern: |
+    sys.stderr.write(...)  
+  message: |
+    Match found stderr
+  fix: |
+    
+  severity: WARNING
+```
+
+
 `./scripts/logging/log_instances.py` implements the log extraction in the above categories
 
 ### Log Level
@@ -38,6 +102,118 @@ The [log level rule](https://semgrep.dev/s/KrishnaTejaJ:log_level4) is used to e
 * debug (includes logs of logging.debug)
 * trace (includes logs of trace and traceback)
 * fatal (includes logs of print and io statements including the word fatal)
+
+
+```
+rules:
+- id: class_
+  pattern: |
+    class $A(...):
+      ...
+  message: |
+    Match found for class_
+  fix: |
+
+- id: method_
+  pattern: |
+    def $B(...):
+      ... 
+  message: |
+    Match found for method_
+  fix: |
+
+- id: end_line_
+  patterns:
+    - pattern-regex: '(.*)$'
+  message: |
+    Match found for end_line_
+  fix: |
+    
+- id: info
+  patterns:
+    - pattern-either: 
+      - pattern: |
+          print(...)
+      - pattern: |
+          logging.info(...)
+      - pattern: |
+          $C.write(...)
+      - pattern: |
+          $D.writelines(...) 
+  message: |
+    Match found for info
+  fix: |
+
+- id: error
+  patterns:
+    - pattern-either: 
+      - pattern: |
+          print("=~/.*[eE][rR][rR][oO][rR].*/")
+      - pattern: |
+          $E.writelines("=~/.*[eE][rR][rR][oO][rR].*/")
+      - pattern: |
+          $F.write("=~/.*[eE][rR][rR][oO][rR].*/")
+      - pattern: |
+          sys.stderr.write(...)
+      - pattern: |
+          logging.error(...)  
+  message: |
+    Match found for error
+  fix: |
+
+- id: warning
+  patterns:
+    - pattern-either: 
+      - pattern: |
+          print("=~/.*[wW][aA][rR][nN][iI][nN][gG].*/")
+      - pattern: |
+          logging.warning(...)
+      - pattern: |
+          $H.writelines("=~/.*[wW][aA][rR][nN][iI][nN][gG].*/")
+      - pattern: |
+          $I.write("=~/.*[wW][aA][rR][nN][iI][nN][gG].*/")
+  message: |
+    Match found for warning
+  fix: |
+
+- id: debug
+  patterns:
+    - pattern-either: 
+      - pattern: |
+          print("=~/.*[dD][eE][bB][uU][gG].*/")
+      - pattern: |
+          logging.debug(...)
+  message: |
+    Match found for debug
+  fix: |
+
+- id: trace
+  patterns:
+    - pattern-either: 
+      - pattern: |
+          trace.$J(...)
+      - pattern: |
+          traceback.$K(...) 
+  message: |
+    Match found for trace
+  fix: |
+
+- id: fatal
+  patterns:
+    - pattern-either: 
+      - pattern: |
+          print("=~/.*[fF][aA][tT][aA][lL].*/")
+      - pattern: |
+          $L.writelines("=~/.*[fF][aA][tT][aA][lL].*/")
+      - pattern: |
+          $M.write("=~/.*[fF][aA][tT][aA][lL].*/")
+      - pattern: |
+          logging.critical(...)
+  message: |
+    Match found for fatal
+  fix: |
+```
+
 
 `./scripts/logging/log_level.py` implements the log extraction in the above categories
 
