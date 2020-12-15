@@ -41,7 +41,6 @@ def finalcalc():
 		cnt += 1
 			
 	#For adding all the data to the LogMetrics-Summarized.csv
-	with open(Config.final2, 'w', newline='') as file:
+	with open(Config.final2, 'a', newline='') as file:
 		writer = csv.writer(file)
-		writer.writerow(['Repo Type', 'Repo Name', 'Repo Link', 'Number of Lines', 'Logging', 'Trace-Traceback', 'Stderr', 'Print', 'io-file.write', "DataScience Changes/Total Changes", "Actual Changed Log lines", "Files Count", 'Total Classes', 'Total Method', 'Total Debug type', 'Total Info Type', 'Total Warning Type', 'Total Error Type', 'Total Fatal type', 'Total Trace type', "Actual Log Lines"])
 		writer.writerows(final_list)
