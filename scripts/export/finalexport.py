@@ -63,15 +63,8 @@ def finalcalc():
 			#if flag_r == 1:
 			final_list.append([""] * 8)
 			final_list[cnt].extend([file_, log_data['end_line_']['line'], log_den_file, log_den_class, log_den_method, log_count_sep['info'], log_count_sep['error'], log_count_sep['warning'], log_count_sep['debug'], log_count_sep['trace'], log_count_sep['fatal'], log_count_sep_class['info'], log_count_sep_class['error'], log_count_sep_class['warning'], log_count_sep_class['debug'], log_count_sep_class['trace'], log_count_sep_class['fatal'], log_count_sep_method['info'], log_count_sep_method['error'], log_count_sep_method['warning'], log_count_sep_method['debug'], log_count_sep_method['trace'], log_count_sep_method['fatal'], "", ""])
-			'''if flag_r == 0:
-				final_list[cnt].extend(["-"] * 23)
-				final_list[cnt].extend([logvsnlog[repo]['logchanges'] , logvsnlog[repo]['nonlogchanges']])'''
-					
-			#flag_r = 1		
+				
 			cnt += 1
-			
-		'''if flag_r == 0:
-			final_list[cnt].extend(["-"] * 23)'''
 			
 	#For adding all the data to the FINAL.csv
 	with open(Config.final, 'a', newline='') as file:
