@@ -15,11 +15,8 @@ def gini(x: List[float]) -> float:
 def gini_input(log_metrics_file):
 	log_metrics_data = pd.read_csv(log_metrics_file)
 	final_list = []
-	repo_list = ['Type of Repo', 'Repo Name', 'Repo GiniIndex', 'File GiniIndex', 'Class GiniIndex', 'Method GiniIndex', 'File GiniIndex Info', 'File GiniIndex Error', 'File GiniIndex Warning', 'File GiniIndex Debug', 'File GiniIndex Trace', 'File GiniIndex Fatal', 'Class GiniIndex Info', 'Class GiniIndex Error', 'Class GiniIndex Warning', 'Class GiniIndex Debug', 'Class GiniIndex Trace', 'Class GiniIndex Fatal', 'Method GiniIndex Info', 'Method GiniIndex Error', 'Method GiniIndex Warning', 'Method GiniIndex Debug', 'Method GiniIndex Trace', 'Method GiniIndex Fatal']
-	#print(log_metrics_data.head(20))
 	for row in range(0, log_metrics_data.shape[0]):
 		if log_metrics_data.iloc[row, 0] in ['DataScience', 'NonDataScience']:
-			#print(repo_list)
 			final_list.append(repo_list)
 			gini_list = []
 			for _ in range(21):
@@ -47,6 +44,6 @@ def gini_input(log_metrics_file):
 				final_list.append(repo_list)
 					
 	#For writing all the gini index values to gini_index.csv				
-	with open(Config.gini_index, 'w', newline='') as file:
+	with open(Config.gini_index, 'a', newline='') as file:
 		writer = csv.writer(file)
 		writer.writerows(final_list)
