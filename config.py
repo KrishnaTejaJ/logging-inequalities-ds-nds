@@ -1,6 +1,6 @@
 class Config:
 	
-	repo_file = 'data/input/1000data.csv'
+	repo_file = 'data/input/data.csv'
 	final = 'data/FINAL.csv'
 	final2 = 'data/LogMetrics-Summarized.csv'
 	csv2repo = 'data/output/log_classes_data/log_instances/input/csv2repo.json'
