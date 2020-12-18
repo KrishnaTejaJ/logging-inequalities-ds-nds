@@ -13,3 +13,10 @@ class  FileOperations:
 			with open(fname) as f:
 				data = json.load(f)
 			return data
+		
+	class csv:
+		
+		def create_csv(fname, header_row):
+			with open(fname, 'w', new_line = '') as file:
+				writer = csv.writer(file)
+				writer.writerow(header_row)
